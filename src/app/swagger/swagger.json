@@ -4,12 +4,36 @@
       "title": "Ecomerce_back",
       "version": "1.0"
     },
-    "servers": [
-      {
-        "url": "https://localhost:7262"
-      }
-    ],
     "paths": {
+      "/Clientes": {
+        "get": {
+          "tags": [
+            "Clientes"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "/WeatherForecast": {
         "get": {
           "tags": [

@@ -7,6 +7,7 @@ import { LoginComponent } from './Vistas/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
+import { ApiModule } from './api/api.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MaterialModule } from './material.module';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ApiModule
   ],
   providers: [],
   bootstrap: [AppComponent]
