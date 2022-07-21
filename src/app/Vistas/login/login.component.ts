@@ -28,8 +28,9 @@ export class LoginComponent implements OnInit {
 		password: new FormControl('', Validators.required)
 	})
 
-	Login() {
 
+
+	Login() {
 		const user = this.loginForm.get('user')!.value;
 		const password = this.loginForm.get('password')!.value;
 
@@ -45,8 +46,20 @@ export class LoginComponent implements OnInit {
 			} else {
 				console.log("Login incorrecto");
 			}
-
 		});
+	}
+
+
+	SignUp() {
+		this.cli.clientesPost$Response({
+			nombre: "nico",
+			apellido: "crespi",
+			email: "asd@ASD.com",
+			telefono: "123456789",
+			direccion: "calle falsa 123"
+		}).subscribe((res) => {
+			console.log(res);
+		}) 
 	}
 
 }
