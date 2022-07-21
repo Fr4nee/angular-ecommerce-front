@@ -12,8 +12,6 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class LoginComponent implements OnInit {
-
-
 	nombre!: string;
 	json!: any;
 
@@ -21,19 +19,7 @@ export class LoginComponent implements OnInit {
 		public cli: ClientesService,
 		public weather: WeatherForecastService,
 		private http: HttpClient
-	) {
-
-		this.cli.clientesGet$Json$Response().subscribe(
-			(data) => {
-				console.log(data)
-				this.json = JSON.parse(data.body);
-				console.log(this.json);
-				this.nombre = this.json.Table.nombre;
-				console.log(this.nombre)
-			}
-		);
-		
-	}
+	) {}
 
 	ngOnInit(): void { }
 
@@ -43,7 +29,24 @@ export class LoginComponent implements OnInit {
 	})
 
 	Login() {
-		console.log('Login');
+
+		const user = this.loginForm.get('user')!.value;
+		const password = this.loginForm.get('password')!.value;
+
+		this.cli.clientesGet$Json$Response()
+		.subscribe((data) => {
+
+			this.json = JSON.parse(data.body);
+			console.log(this.json.Table);
+
+			if (user == this.json.Table.nombre
+				&& password == this.json.Table.contraseña) {
+				console.log("Login correcto");
+			} else {
+				console.log("Login incorrecto");
+			}
+
+		});
 	}
 
 }

@@ -1,24 +1,21 @@
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-6">
+<div class="container-fluid cont">
+	<div class="row login">
+		<div class="col-6 izq">
             <h1>Ecommerce</h1>
-            <h1>{{nombre}}</h1>
 		</div>
-		<div class="col-6">
-            <div class="card">
-                <div class="card-header">
-                    <h3>Iniciar Sesión</h3>
-                </div>
-                <div class="card-body">
+		<div class="col-6 der">
+            <div>
+                <h2>Iniciar Sesión</h2>
+                <div class="login-form">
                     <form [formGroup]="loginForm">
                         <div class="form-group">
-                            <mat-form-field appearance="fill">
+                            <mat-form-field appearance="outline">
                                 <mat-label for="user">Usuario</mat-label>
                                 <input matInput type="user" class="form-control" id="user" formControlName="user" placeholder="Ingrese su usuario">
                             </mat-form-field>
                         </div>
                         <div class="form-group">
-                            <mat-form-field appearance="fill">
+                            <mat-form-field appearance="outline">
                                 <mat-label for="password">Contraseña</mat-label>
                                 <input matInput type="password" class="form-control" id="password" formControlName="password" placeholder="Ingrese su contraseña">
                             </mat-form-field>
