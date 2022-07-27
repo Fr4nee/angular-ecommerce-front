@@ -31,7 +31,6 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTreeModule } from '@angular/material/tree';
 
-
 @NgModule({
   declarations: [],
   imports: [

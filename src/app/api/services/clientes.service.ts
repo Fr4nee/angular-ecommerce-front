@@ -22,112 +22,21 @@ export class ClientesService extends BaseService {
   }
 
   /**
-   * Path part for operation clientesGet
+   * Path part for operation clientesListarClientesGet
    */
-  static readonly ClientesGetPath = '/Clientes';
+  static readonly ClientesListarClientesGetPath = '/Clientes/ListarClientes';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `clientesGet$Plain()` instead.
+   * To access only the response body, use `clientesListarClientesGet()` instead.
    *
    * This method doesn't expect any request body.
    */
-  clientesGet$Plain$Response(params?: {
-  }): Observable<StrictHttpResponse<string>> {
-
-    const rb = new RequestBuilder(this.rootUrl, ClientesService.ClientesGetPath, 'get');
-    if (params) {
-    }
-
-    return this.http.request(rb.build({
-      responseType: 'text',
-      accept: 'text/plain'
-    })).pipe(
-      filter((r: any) => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<string>;
-      })
-    );
-  }
-
-  /**
-   * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `clientesGet$Plain$Response()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  clientesGet$Plain(params?: {
-  }): Observable<string> {
-
-    return this.clientesGet$Plain$Response(params).pipe(
-      map((r: StrictHttpResponse<string>) => r.body as string)
-    );
-  }
-
-  /**
-   * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `clientesGet$Json()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  clientesGet$Json$Response(params?: {
-  }): Observable<StrictHttpResponse<string>> {
-
-    const rb = new RequestBuilder(this.rootUrl, ClientesService.ClientesGetPath, 'get');
-    if (params) {
-    }
-
-    return this.http.request(rb.build({
-      responseType: 'json',
-      accept: 'text/json'
-    })).pipe(
-      filter((r: any) => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<string>;
-      })
-    );
-  }
-
-  /**
-   * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `clientesGet$Json$Response()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  clientesGet$Json(params?: {
-  }): Observable<string> {
-
-    return this.clientesGet$Json$Response(params).pipe(
-      map((r: StrictHttpResponse<string>) => r.body as string)
-    );
-  }
-
-  /**
-   * Path part for operation clientesPost
-   */
-  static readonly ClientesPostPath = '/Clientes';
-
-  /**
-   * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `clientesPost()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  clientesPost$Response(params?: {
-    nombre?: string;
-    apellido?: string;
-    email?: string;
-    telefono?: string;
-    direccion?: string;
+  clientesListarClientesGet$Response(params?: {
   }): Observable<StrictHttpResponse<void>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ClientesService.ClientesPostPath, 'post');
+    const rb = new RequestBuilder(this.rootUrl, ClientesService.ClientesListarClientesGetPath, 'get');
     if (params) {
-      rb.query('nombre', params.nombre, {});
-      rb.query('apellido', params.apellido, {});
-      rb.query('email', params.email, {});
-      rb.query('telefono', params.telefono, {});
-      rb.query('direccion', params.direccion, {});
     }
 
     return this.http.request(rb.build({
@@ -143,19 +52,124 @@ export class ClientesService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `clientesPost$Response()` instead.
+   * To access the full response (for headers, for example), `clientesListarClientesGet$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  clientesPost(params?: {
+  clientesListarClientesGet(params?: {
+  }): Observable<void> {
+
+    return this.clientesListarClientesGet$Response(params).pipe(
+      map((r: StrictHttpResponse<void>) => r.body as void)
+    );
+  }
+
+  /**
+   * Path part for operation clientesDevolverClienteGet
+   */
+  static readonly ClientesDevolverClienteGetPath = '/Clientes/DevolverCliente';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `clientesDevolverClienteGet()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  clientesDevolverClienteGet$Response(params?: {
+    nombre?: string;
+    'contraseña'?: string;
+  }): Observable<StrictHttpResponse<void>> {
+
+    const rb = new RequestBuilder(this.rootUrl, ClientesService.ClientesDevolverClienteGetPath, 'get');
+    if (params) {
+      rb.query('nombre', params.nombre, {});
+      rb.query('contraseña', params['contraseña'], {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: '*/*'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `clientesDevolverClienteGet$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  clientesDevolverClienteGet(params?: {
+    nombre?: string;
+    'contraseña'?: string;
+  }): Observable<void> {
+
+    return this.clientesDevolverClienteGet$Response(params).pipe(
+      map((r: StrictHttpResponse<void>) => r.body as void)
+    );
+  }
+
+  /**
+   * Path part for operation clientesRegistrarClientePost
+   */
+  static readonly ClientesRegistrarClientePostPath = '/Clientes/RegistrarCliente';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `clientesRegistrarClientePost()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  clientesRegistrarClientePost$Response(params?: {
     nombre?: string;
     apellido?: string;
     email?: string;
     telefono?: string;
     direccion?: string;
+    'contraseña'?: string;
+  }): Observable<StrictHttpResponse<void>> {
+
+    const rb = new RequestBuilder(this.rootUrl, ClientesService.ClientesRegistrarClientePostPath, 'post');
+    if (params) {
+      rb.query('nombre', params.nombre, {});
+      rb.query('apellido', params.apellido, {});
+      rb.query('email', params.email, {});
+      rb.query('telefono', params.telefono, {});
+      rb.query('direccion', params.direccion, {});
+      rb.query('contraseña', params['contraseña'], {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: '*/*'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `clientesRegistrarClientePost$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  clientesRegistrarClientePost(params?: {
+    nombre?: string;
+    apellido?: string;
+    email?: string;
+    telefono?: string;
+    direccion?: string;
+    'contraseña'?: string;
   }): Observable<void> {
 
-    return this.clientesPost$Response(params).pipe(
+    return this.clientesRegistrarClientePost$Response(params).pipe(
       map((r: StrictHttpResponse<void>) => r.body as void)
     );
   }
