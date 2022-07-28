@@ -59,22 +59,12 @@ export class LoginComponent implements OnInit {
 					nombre: user || undefined,
 					contraseña: password || undefined,
 				}).subscribe((res) => {
-					console.log(res);
 					let result: any = res.body;
-					console.log(result);
-					let json = JSON.parse(result)
-
-					console.log(json);
-					
-					// const usuario = {
-					// 	nombre: this.json.nombre,
-					// 	apellido: ,
-					// 	email: ,
-					// 	telefono: ,
-					// 	direccion: ,
-					// }
-					// localStorage.setItem('usuario', JSON.stringify(usuario));
-					console.log(localStorage.getItem('user'));
+					let jsonParsed = JSON.parse(result)
+					let jsonString = JSON.stringify(jsonParsed)
+					let usuario = JSON.parse(jsonString)[0][0];
+					console.log(usuario) 
+					localStorage.setItem('usuario', JSON.stringify(usuario));
 				})
 				this.router.navigate(['Ecommerce/PaginaPrincipal']);
 			} else {
