@@ -1,0 +1,46 @@
+<div [formGroup]="add" class="container-fluid">
+    <h3>Agregar Producto</h3>
+	<div class="row">
+		<div class="col-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput type="text" class="form-control" formControlName="nombre" placeholder="Ingrese el nombre">
+            </mat-form-field>
+		</div>
+		<div class="col-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Precio</mat-label>
+                <input matInput type="number" class="form-control" formControlName="precio" placeholder="Ingrese el precio">
+            </mat-form-field>
+		</div>
+		<div class="col-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Stock</mat-label>
+                <input matInput type="number" class="form-control" formControlName="stock" placeholder="Ingrese el stock">
+            </mat-form-field>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Descripcion</mat-label>
+                <input matInput type="text" class="form-control" formControlName="descripcion" placeholder="Ingrese la descripcion">
+            </mat-form-field>
+		</div>
+		<div class="col-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Categoria</mat-label>
+                <input matInput type="text" class="form-control" formControlName="categoria" placeholder="Ingrese la categoria">
+            </mat-form-field>
+		</div>
+		<div class="col-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Imagen</mat-label>
+                <input matInput type="text" class="form-control" formControlName="imagen" placeholder="Ingrese la imagen">
+            </mat-form-field>
+		</div>
+        <button mat-raised-button color="primary" (click)="AgregarProducto()">
+            <span>Aceptar</span>
+        </button>
+	</div>
+</div>

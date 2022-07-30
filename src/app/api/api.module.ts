@@ -6,7 +6,7 @@ import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
 import { ClientesService } from './services/clientes.service';
 import { LoginService } from './services/login.service';
-import { WeatherForecastService } from './services/weather-forecast.service';
+import { ProductosService } from './services/productos.service';
 
 /**
  * Module that provides all services and configuration.
@@ -18,7 +18,7 @@ import { WeatherForecastService } from './services/weather-forecast.service';
   providers: [
     ClientesService,
     LoginService,
-    WeatherForecastService,
+    ProductosService,
     ApiConfiguration
   ],
 })

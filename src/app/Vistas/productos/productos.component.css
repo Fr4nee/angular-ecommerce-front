@@ -1,0 +1,10 @@
+table {
+    width: 100%;
+  }
+
+
+  img {
+    width: 200px;
+    height: 100px;
+    object-fit: cover ;
+  }

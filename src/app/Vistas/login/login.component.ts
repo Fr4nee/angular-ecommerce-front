@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ClientesService } from 'src/app/api/services';
-import { WeatherForecastService } from 'src/app/api/services';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoginService } from 'src/app/api/services';
@@ -34,7 +33,6 @@ export class LoginComponent implements OnInit {
 
 	constructor(
 		public cli: ClientesService,
-		public weather: WeatherForecastService,
 		private router: Router,
 		public loginServ: LoginService,
 		public snackBar: MatSnackBar
@@ -82,7 +80,7 @@ export class LoginComponent implements OnInit {
 		const phone = this.signupForm.get('phone')!.value;
 		const address = this.signupForm.get('address')!.value;
 
-		this.cli.clientesRegistrarClientePost$Response({
+		this.cli.clientesRegistrarClientePost$Json$Response({
 			nombre: user || undefined,
 			apellido: surname || undefined,
 			email: email || undefined,

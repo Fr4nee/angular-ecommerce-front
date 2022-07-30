@@ -49,7 +49,12 @@ export class SidenavComponent implements OnDestroy {
 	}
 
 	LogOut() {
+		localStorage.clear()
 		this.router.navigate(['/'])
+	}
+
+	ReturnHome(){
+		this.router.navigate(['/Ecommerce/PaginaPrincipal'])
 	}
 
 }

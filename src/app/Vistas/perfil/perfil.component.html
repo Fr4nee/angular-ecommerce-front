@@ -1,1 +1,26 @@
-<p>perfil works!</p>
+<mat-card class="example-card">
+    <mat-card-title>{{usuario.nombre}} {{usuario.apellido}}</mat-card-title>
+    <mat-card-subtitle>{{usuario.email}}</mat-card-subtitle>
+    <mat-card-content>
+      <p>{{usuario.direccion}}</p>
+      <p>{{usuario.telefono}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="EditarCliente()">Editar</button>
+    </mat-card-actions>
+</mat-card>
+
+
+<!-- <div *ngFor="let cliente of listaClientes">
+  <mat-card class="example-card">
+    <mat-card-title>{{cliente.nombre}} {{cliente.apellido}}</mat-card-title>
+    <mat-card-subtitle>{{cliente.email}}</mat-card-subtitle>
+    <mat-card-content>
+      <p>{{cliente.direccion}}</p>
+      <p>{{cliente.telefono}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="EditarCliente()">Editar</button>
+    </mat-card-actions>
+</mat-card>
+</div> -->

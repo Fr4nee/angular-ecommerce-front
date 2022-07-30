@@ -1,0 +1,41 @@
+<div class="login-form">
+    <form [formGroup]="editForm">
+        <div class="form-group">
+            <mat-form-field appearance="outline">
+                <mat-label for="user">Nombre</mat-label>
+                <input matInput type="user" class="form-control" id="user" formControlName="user" placeholder="Ingrese su usuario">
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field appearance="outline">
+                <mat-label for="surname">Apellido</mat-label>
+                <input matInput type="surname" class="form-control" id="surname" formControlName="surname" placeholder="Ingrese su Apellido">
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field appearance="outline">
+                <mat-label for="email">Email</mat-label>
+                <input matInput type="email" class="form-control" id="email" formControlName="email" placeholder="Ingrese su Email">
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field appearance="outline">
+                <mat-label for="phone">Telefono</mat-label>
+                <input matInput type="phone" class="form-control" id="phone" formControlName="phone" placeholder="Ingrese su Telefono">
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field appearance="outline">
+                <mat-label for="address">Direccion</mat-label>
+                <input matInput type="user" class="form-control" id="address" formControlName="address" placeholder="Ingrese su Direccion">
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field appearance="outline">
+                <mat-label for="password">Contraseña</mat-label>
+                <input matInput type="password" class="form-control" id="password" formControlName="password" placeholder="Ingrese su contraseña">
+            </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" (click)="EditarCliente()">Editar</button>
+    </form>
+</div>
