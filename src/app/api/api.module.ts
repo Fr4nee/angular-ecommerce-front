@@ -4,6 +4,7 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { HttpClient } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
+import { CategoriasService } from './services/categorias.service';
 import { ClientesService } from './services/clientes.service';
 import { LoginService } from './services/login.service';
 import { ProductosService } from './services/productos.service';
@@ -16,6 +17,7 @@ import { ProductosService } from './services/productos.service';
   exports: [],
   declarations: [],
   providers: [
+    CategoriasService,
     ClientesService,
     LoginService,
     ProductosService,

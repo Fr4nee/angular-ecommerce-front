@@ -1,9 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ProductosService } from 'src/app/api/services';
+import { CategoriasService, ProductosService } from 'src/app/api/services';
 import { Producto } from 'src/app/api/models/productos-model';
 import { ProductosServicioService } from 'src/app/Servicios/productos-servicio.service';
 import { FormBuilder } from '@angular/forms';
+import { Categoria } from 'src/app/api/models/categorias-models';
 
 @Component({
 	selector: 'app-editar-producto',
@@ -23,6 +24,7 @@ export class EditarProductoComponent implements OnInit {
 		imagen: '',
 	}
 	edit!: FormGroup;
+	categorias: Categoria[] = [];
 
 	ngOnInit() {
 		console.log(this.edit.value)
@@ -32,6 +34,7 @@ export class EditarProductoComponent implements OnInit {
 		public prod: ProductosService,
 		public prodServ: ProductosServicioService,
 		public builder: FormBuilder,
+		public catServ: CategoriasService,
 	) {
 		this.prodServ.productoEmitter.subscribe((producto) => {
 			this.edit = this.builder.group({
@@ -43,6 +46,17 @@ export class EditarProductoComponent implements OnInit {
 				categoria: new FormControl(producto.categoria, Validators.required),
 				imagen: new FormControl(producto.imagen, Validators.required),
 			})
+		})
+
+		this.catServ.listarCategoriasGet$Response()
+		.subscribe((res) => {
+			console.log(res)
+			let result: any = res.body;
+			let jsonParsed = JSON.parse(result)
+			let jsonString = JSON.stringify(jsonParsed)
+			let cats = JSON.parse(jsonString)[0];
+			this.categorias = cats;
+			console.log(this.categorias)
 		})
 	}
 

@@ -18,6 +18,8 @@ import { CategoriasComponent } from './Vistas/categorias/categorias.component';
 import { EditarClienteComponent } from './Vistas/ABM/editar-cliente/editar-cliente.component';
 import { EditarProductoComponent } from './Vistas/ABM/editar-producto/editar-producto.component';
 import { AgregarProductoComponent } from './Vistas/ABM/agregar-producto/agregar-producto.component';
+import { AgregarCategoriaComponent } from './Vistas/ABM/agregar-categoria/agregar-categoria.component';
+import { EditarCategoriaComponent } from './Vistas/ABM/editar-categoria/editar-categoria.component';
 import { FormsModule } from '@angular/forms'; 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { FormsModule } from '@angular/forms';
     CategoriasComponent,
     EditarClienteComponent,
     EditarProductoComponent,
-    AgregarProductoComponent
+    AgregarProductoComponent,
+    AgregarCategoriaComponent,
+    EditarCategoriaComponent
   ],
   imports: [
     MaterialModule,

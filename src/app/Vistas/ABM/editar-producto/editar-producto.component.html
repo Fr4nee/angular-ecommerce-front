@@ -30,7 +30,11 @@
 		<div class="col-4">
             <mat-form-field appearance="outline">
                 <mat-label>Categoria</mat-label>
-                <input matInput type="text" class="form-control" formControlName="categoria" placeholder="Ingrese la categoria">
+                <mat-select formControlName="categoria">
+                    <mat-option *ngFor="let categoria of categorias" [value]="categoria.nombre">
+                        {{categoria.nombre}}
+                    </mat-option>
+                </mat-select>
             </mat-form-field>
 		</div>
 		<div class="col-4">

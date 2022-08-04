@@ -14,7 +14,6 @@ import { AgregarProductoComponent } from '../ABM/agregar-producto/agregar-produc
 
 export class ProductosComponent {
 	dataSource: Producto[] = [];
-	listaProducto: any[] = []
 	displayedColumns: string[] = ['id', 'nombre', 'precio', 'imagen', 'categoria', 'stock', 'descripcion', 'botones'];
 	producto: Producto = {
 		id: 0,

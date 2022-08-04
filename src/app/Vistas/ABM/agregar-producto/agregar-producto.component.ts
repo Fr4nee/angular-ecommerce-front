@@ -2,6 +2,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProductosService } from 'src/app/api/services';
 import { ProductosServicioService } from 'src/app/Servicios/productos-servicio.service';
+import { CategoriasService } from 'src/app/api/services'; 
+import { Categoria } from 'src/app/api/models/categorias-models'; 
 
 
 @Component({
@@ -14,10 +16,12 @@ export class AgregarProductoComponent implements OnInit {
 	@Output() stat = new EventEmitter<boolean>();
 
 	add!: FormGroup;
+	selectedValue!: string;
+	categorias: Categoria[] = [];
 
 	constructor(
 		public prod: ProductosService,
-		public prodServ: ProductosServicioService,
+		public catServ: CategoriasService,
 	) {}
 
 	ngOnInit() {
@@ -29,6 +33,17 @@ export class AgregarProductoComponent implements OnInit {
 			categoria: new FormControl('', Validators.required),
 			imagen: new FormControl('', Validators.required),
 		});
+
+		this.catServ.listarCategoriasGet$Response()
+		.subscribe((res) => {
+			console.log(res)
+			let result: any = res.body;
+			let jsonParsed = JSON.parse(result)
+			let jsonString = JSON.stringify(jsonParsed)
+			let cats = JSON.parse(jsonString)[0];
+			this.categorias = cats;
+			console.log(this.categorias)
+		})
 	}
 
 	AgregarProducto() {

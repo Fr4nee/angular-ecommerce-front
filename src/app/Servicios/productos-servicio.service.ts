@@ -17,8 +17,6 @@ export class ProductosServicioService {
       imagen: '',
     };
 
-
-
     constructor() { }
 
     setProducto(nuevoProducto: Producto) {
